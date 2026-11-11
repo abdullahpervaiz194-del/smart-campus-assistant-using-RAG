@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Campus Assistant (RAG + Ollama) | CSC-320(L) Group 1</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <!-- Top Header -->
+  <header class="top-header">
+    <div class="header-inner">
+      <div class="brand-group">
+        <div class="brand-logo">AI</div>
+        <div class="brand-titles">
+          <h1>Smart Campus Assistant using RAG + LLM</h1>
+          <div class="brand-subtitle">
+            <span>{{ project.course }}</span>
+            <span>•</span>
+            <span>{{ project.section }} – {{ project.group }}</span>
+            <span>•</span>
+            <span>Local Inference via Ollama</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="status-cluster">
+        <div class="status-pill" id="ollamaStatusPill">
+          <span class="status-dot {{ 'online' if ollama_status.online else 'offline' }}" id="ollamaStatusDot"></span>
+          <span id="ollamaStatusText">
+            {% if ollama_status.online %}
+              Ollama Online • LLM: {{ active_llm_model }} | Embed: {{ active_embed_model }}
+            {% else %}
+              Ollama Offline (Start `ollama serve`)
+            {% endif %}
+          </span>
+        </div>
+        <div class="status-pill">
+          <span>Verified KB: <strong id="headerKbCount">{{ kb_stats.total_entries }}</strong> Passages</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="nav-bar">
+    <div class="nav-tabs">
+      <button class="nav-tab active" data-tab="tab-assistant">
+        <span>💬 Campus Assistant & RAG Inspector</span>
+      </button>
+      <button class="nav-tab" data-tab="tab-kb">
+        <span>📚 Verified Knowledge Base</span>
+        <span class="tab-badge" id="navKbBadge">{{ kb_stats.total_entries }}</span>
+      </button>
+      <button class="nav-tab" data-tab="tab-eval">
+        <span>📊 Evaluation Benchmark</span>
+        <span class="tab-badge">25 Questions</span>
+      </button>
+      <button class="nav-tab" data-tab="tab-about">
+        <span>🏛️ RAG Architecture & Group 1 Team</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-container">
+    <!-- TAB 1: ASSISTANT & LIVE RAG INSPECTOR -->
+    <section id="tab-assistant" class="tab-panel active">
+      <div class="assistant-grid">
+        <!-- Left Column: Chat Interface -->
+        <div class="card">
+          <div class="card-header">
+            <h2>🎓 Ask Smart Campus Assistant</h2>
+            <button class="btn-secondary" id="clearChatBtn" type="button">Clear Chat</button>
+          </div>
+
+          <!-- Model & RAG Configuration Bar -->
+          <div class="rag-config-bar">
+            <div class="config-item">
+              <label for="llmModelSelect">Ollama LLM:</label>
+              <select id="llmModelSelect">
+                {% for m in ollama_status.llm_models %}
+                  <option value="{{ m }}" {% if m == active_llm_model %}selected{% endif %}>{{ m }}</option>
+                {% endfor %}
+                {% if active_llm_model not in ollama_status.llm_models %}
+                  <option value="{{ active_llm_model }}" selected>{{ active_llm_model }}</option>
+                {% endif %}
+                <option value="qwen3:latest">qwen3:latest (if pulled)</option>
+              </select>
+            </div>
+
+            <div class="config-item">
+              <label for="embedModelSelect">Embedding Model:</label>
+              <select id="embedModelSelect">
+                {% for m in ollama_status.embed_models %}
+                  <option value="{{ m }}" {% if m == active_embed_model %}selected{% endif %}>{{ m }}</option>
+                {% endfor %}
+                {% if active_embed_model not in ollama_status.embed_models %}
+                  <option value="{{ active_embed_model }}" selected>{{ active_embed_model }}</option>
+                {% endif %}
+                <option value="nomic-embed-text:latest">nomic-embed-text:latest (if pulled)</option>
+              </select>
+            </div>
+
+            <div class="config-item">
+              <label for="topKSelect">Top-K Passages:</label>
+              <select id="topKSelect">
+                <option value="2">2</option>
+                <option value="3" selected>3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+
+            <div class="config-item">
+              <label for="thresholdInput">Min Similarity:</label>
+              <input type="number" id="thresholdInput" value="{{ default_threshold }}" min="0.15" max="0.80" step="0.02" style="width: 68px;" />
+            </div>
+          </div>
+
+          <!-- Quick Sample Questions -->
+          <div class="sample-prompts-bar">
+            <div class="sample-prompts-label">Try Verified Campus Questions or Out-of-Scope Abstention Tests:</div>
+            <div class="sample-chips">
+              <button type="button" class="sample-chip" data-q="What is the per credit hour tuition fee and total semester fee for BSCS and BSAI?">💰 BSCS/BSAI Semester Fee</button>
+              <button type="button" class="sample-chip" data-q="Where is the Department of Computer Science and AI Lab located on campus?">📍 CS & AI Dept Location</button>
+              <button type="button" class="sample-chip" data-q="What is the minimum attendance percentage required to sit in the final exam?">📋 75% Attendance Rule</button>
+              <button type="button" class="sample-chip" data-q="What are the Central Library timings and how many books can I borrow?">📖 Library Rules & Timings</button>
+              <button type="button" class="sample-chip" data-q="What scholarships or sibling fee discounts are available at the university?">🏅 Merit & Sibling Scholarships</button>
+              <button type="button" class="sample-chip" data-q="How can I reset my forgotten LMS portal password or register for Wi-Fi?">🔐 LMS & Wi-Fi Support</button>
+              <button type="button" class="sample-chip" data-q="What are the regular university office timings and Friday timings?">🕘 Office & Friday Timings</button>
+              <button type="button" class="sample-chip abstain-chip" data-q="What is the best recipe for baking a chocolate lava cake at home?">🚫 Abstain Test: Cake Recipe</button>
+              <button type="button" class="sample-chip abstain-chip" data-q="Does the university campus have an international airport and submarine dock for students?">🚫 Abstain Test: Campus Airport</button>
+            </div>
+          </div>
+
+          <!-- Chat Stream -->
+          <div class="chat-messages" id="chatMessages">
+            <div class="msg assistant">
+              <div class="msg-avatar">AI</div>
+              <div class="msg-bubble grounded">
+                <strong>Assalam-o-Alaikum! Welcome to the Smart Campus Assistant (CSC-320(L) Group 1).</strong><br />
+                Ask me any question about <em>Admissions, Tuition Fees, Scholarships, Department Locations, Office Timings, Library Rules, Examination & Attendance Policies, Hostels, Transport, or LMS/IT Services</em>.<br /><br />
+                Every response is generated locally through <strong>Ollama</strong> using <strong>Retrieval-Augmented Generation (RAG)</strong> grounded in {{ kb_stats.total_entries }} verified campus passages. If a question is outside our verified knowledge base, I will clearly abstain rather than guessing.
+              </div>
+            </div>
+          </div>
+
+          <!-- Question Input Form -->
+          <form class="chat-input-area" id="askForm">
+            <input
+              type="text"
+              id="questionInput"
+              placeholder="Ask a campus question (e.g., Where is the Admission Office and what is the merit formula?)..."
+              autocomplete="off"
+              required
+            />
+            <button type="submit" class="btn-primary" id="askSubmitBtn">
+              <span id="askBtnText">Ask Assistant</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Right Column: Live RAG Pipeline Inspector -->
+        <div class="card">
+          <div class="card-header">
+            <h2>🔬 Live RAG Pipeline Inspector (Step-by-Step Trace)</h2>
+            <span class="badge badge-source" id="inspectorStatusBadge">Waiting for Query</span>
+          </div>
+
+          <div class="inspector-body" id="inspectorBody">
+            <!-- Step 1: NLP Question Processing -->
+            <div class="pipeline-step">
+              <div class="step-title">
+                <span>1. NLP Question Preparation (Aftab – 18333)</span>
+                <span id="nlpTimeBadge">0 ms</span>
+              </div>
+              <div class="kv-grid">
+                <div class="kv-label">Cleaned Query:</div>
+                <div class="kv-val" id="inspCleanedQuery">—</div>
+                <div class="kv-label">Expanded Query:</div>
+                <div class="kv-val" id="inspExpandedQuery">—</div>
+                <div class="kv-label">Extracted Tokens:</div>
+                <div class="kv-val" id="inspKeywords">—</div>
+                <div class="kv-label">Predicted Intent:</div>
+                <div class="kv-val" id="inspCategory">—</div>
+              </div>
+            </div>
+
+            <!-- Step 2: Embedding & Cosine Similarity Retrieval -->
+            <div class="pipeline-step">
+              <div class="step-title">
+                <span>2. Semantic Retrieval – Cosine Similarity (Aftab & Talha)</span>
+                <span id="retTimeBadge">0 ms</span>
+              </div>
+              <div class="kv-grid" style="margin-bottom: 0.5rem;">
+                <div class="kv-label">Embedding Model:</div>
+                <div class="kv-val" id="inspEmbedModel">{{ active_embed_model }}</div>
+                <div class="kv-label">Top Cosine Score:</div>
+                <div class="kv-val" id="inspMaxCosine">—</div>
+                <div class="kv-label">Relevance Check:</div>
+                <div class="kv-val" id="inspRelevanceStatus">—</div>
+              </div>
+              <div id="inspPassagesList">
+                <div style="font-size: 0.8rem; color: var(--text-muted); padding: 0.4rem 0;">
+                  Submit a question to view Top-K retrieved campus passages and their cosine similarity scores.
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: Local Ollama LLM Answer Generation -->
+            <div class="pipeline-step">
+              <div class="step-title">
+                <span>3. Ollama Local LLM Generation (Shahzad – 18292)</span>
+                <span id="llmTimeBadge">0 ms</span>
+              </div>
+              <div class="kv-grid">
+                <div class="kv-label">Local LLM Model:</div>
+                <div class="kv-val" id="inspLlmModel">{{ active_llm_model }}</div>
+                <div class="kv-label">Generation Mode:</div>
+                <div class="kv-val" id="inspGenMode">—</div>
+                <div class="kv-label">Total Latency:</div>
+                <div class="kv-val" id="inspTotalTime">—</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: VERIFIED KNOWLEDGE BASE EXPLORER -->
+    <section id="tab-kb" class="tab-panel">
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-label">Total Verified Passages</div>
+          <div class="metric-value" id="kbStatTotal">{{ kb_stats.total_entries }}</div>
+          <div class="metric-sub">Exceeds Objective 1 requirement (≥ 30 entries)</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Campus Categories</div>
+          <div class="metric-value">{{ kb_stats.total_categories }}</div>
+          <div class="metric-sub">Admissions, Fees, Library, Exams, Hostels, IT, etc.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Embedding Model</div>
+          <div class="metric-value" style="font-size: 1.25rem; margin-top: 0.55rem;">{{ active_embed_model }}</div>
+          <div class="metric-sub">Dense vectors cached locally via Ollama</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Curated By</div>
+          <div class="metric-value" style="font-size: 1.25rem; margin-top: 0.55rem;">Talha (18365)</div>
+          <div class="metric-sub">Every passage retains its official notice/handbook source</div>
+        </div>
+      </div>
+
+      <!-- Add New Verified Entry Collapsible Card -->
+      <div class="card" style="margin-bottom: 1.25rem;">
+        <div class="card-header">
+          <h2>➕ Add New Verified Campus Information Passage</h2>
+          <span style="font-size: 0.78rem; color: var(--text-secondary);">Automatically embeds via Ollama & updates JSON/CSV</span>
+        </div>
+        <form id="addKbForm" class="form-grid">
+          <div>
+            <label for="newKbTitle">Topic / Passage Title *</label>
+            <input type="text" id="newKbTitle" placeholder="e.g., Convocation Gown Registration Schedule" required />
+          </div>
+          <div>
+            <label for="newKbCategory">Category *</label>
+            <select id="newKbCategory" required>
+              {% for cat in categories %}
+                <option value="{{ cat }}">{{ cat }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-full">
+            <label for="newKbContent">Verified Passage Content *</label>
+            <textarea id="newKbContent" rows="2" placeholder="Enter the verified campus rule, timing, location, or procedure..." required></textarea>
+          </div>
+          <div>
+            <label for="newKbSource">Official Document / Notice Source *</label>
+            <input type="text" id="newKbSource" placeholder="e.g., Registrar Circular #REG-2026-14, Page 2" required />
+          </div>
+          <div>
+            <label for="newKbKeywords">Keywords (comma-separated, optional)</label>
+            <input type="text" id="newKbKeywords" placeholder="e.g., convocation, gown, degree, registration" />
+          </div>
+          <div class="form-full" style="display: flex; justify-content: space-between; align-items: center;">
+            <span id="addKbFeedback" style="font-size: 0.82rem; color: var(--accent-emerald);"></span>
+            <button type="submit" class="btn-primary">Add & Embed Passage</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Search & Filter Bar -->
+      <div class="filter-bar">
+        <input type="text" id="kbSearchInput" placeholder="Search passages by keyword, room number, policy, or KB ID..." />
+        <select id="kbCategoryFilter">
+          <option value="All">All Categories ({{ kb_stats.total_entries }})</option>
+          {% for cat in categories %}
+            <option value="{{ cat }}">{{ cat }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <!-- Knowledge Base Cards Container -->
+      <div class="kb-cards-grid" id="kbCardsContainer"></div>
+    </section>
+
+    <!-- TAB 3: 25-QUESTION EVALUATION BENCHMARK -->
+    <section id="tab-eval" class="tab-panel">
+      <div class="card" style="margin-bottom: 1.25rem;">
+        <div class="card-header">
+          <h2>📊 Objective 5: Prototype Evaluation Benchmark (Hafeez Khan – 18165)</h2>
+          <button type="button" class="btn-primary" id="runEvalBtn">
+            <span id="runEvalBtnText">▶ Re-Run All 25 Test Questions on Ollama</span>
+          </button>
+        </div>
+        <div style="padding: 1rem 1.2rem; font-size: 0.85rem; color: var(--text-secondary);">
+          Evaluates <strong>25 test questions</strong> (exceeding the proposal requirement of ≥ 20 questions):
+          <strong>19 in-scope campus questions</strong> across all university departments and policies, plus
+          <strong>6 out-of-scope / unanswerable questions</strong> where the assistant must abstain rather than hallucinating.
+        </div>
+      </div>
+
+      <!-- Evaluation Summary Metrics -->
+      <div class="metrics-grid" id="evalSummaryMetrics">
+        <div class="metric-card">
+          <div class="metric-label">Retrieval Hit@3 Relevance</div>
+          <div class="metric-value" id="evalHit3">
+            {{ eval_report.summary.retrieval_hit_at_3_rate ~ '%' if eval_report else '—' }}
+          </div>
+          <div class="metric-sub">Hit@1: <span id="evalHit1">{{ eval_report.summary.retrieval_hit_at_1_rate ~ '%' if eval_report else '—' }}</span></div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">In-Scope Answer Accuracy</div>
+          <div class="metric-value" id="evalAnswerAcc">
+            {{ eval_report.summary.in_scope_answer_accuracy ~ '%' if eval_report else '—' }}
+          </div>
+          <div class="metric-sub">19 verified campus test questions</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Out-of-Scope Abstention</div>
+          <div class="metric-value" id="evalAbstainAcc">
+            {{ eval_report.summary.out_of_scope_abstention_accuracy ~ '%' if eval_report else '—' }}
+          </div>
+          <div class="metric-sub">6 unsupported / trivia questions</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Overall System Accuracy</div>
+          <div class="metric-value" id="evalOverallAcc">
+            {{ eval_report.summary.overall_system_accuracy ~ '%' if eval_report else '—' }}
+          </div>
+          <div class="metric-sub">Combined grounded + abstention score</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Avg Response Time</div>
+          <div class="metric-value" id="evalAvgTime">
+            {{ eval_report.summary.avg_total_time_ms ~ ' ms' if eval_report else '—' }}
+          </div>
+          <div class="metric-sub">Embed: <span id="evalEmbedTime">{{ eval_report.summary.avg_embedding_time_ms if eval_report else '—' }}</span> ms | LLM: <span id="evalLlmTime">{{ eval_report.summary.avg_llm_time_ms if eval_report else '—' }}</span> ms</div>
+        </div>
+      </div>
+
+      <!-- Detailed 25 Test Questions Results Table -->
+      <div class="card">
+        <div class="card-header">
+          <h2>📋 Detailed 25-Question Evaluation Log</h2>
+          <span style="font-size: 0.78rem; color: var(--text-secondary);">Click "Test in Chat" on any row to inspect its live RAG trace</span>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Test Question & Category</th>
+                <th>Expected Source</th>
+                <th>Retrieved Top-3</th>
+                <th>Cosine Sim</th>
+                <th>Status / Decision</th>
+                <th>Latency</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="evalTableBody">
+              {% if eval_report and eval_report.results %}
+                {% for r in eval_report.results %}
+                  <tr>
+                    <td><strong>{{ r.id }}</strong></td>
+                    <td>
+                      <div style="font-weight: 600; color: var(--text-primary);">{{ r.question }}</div>
+                      <div style="font-size: 0.74rem; color: var(--text-muted); margin-top: 0.2rem;">{{ r.category }}</div>
+                      <div style="font-size: 0.76rem; color: var(--text-secondary); margin-top: 0.35rem; background: rgba(15,23,42,0.6); padding: 0.4rem 0.6rem; border-radius: 6px;">
+                        {{ r.answer }}
+                      </div>
+                    </td>
+                    <td>
+                      {% if r.should_abstain %}
+                        <span class="badge badge-abstained">Should Abstain</span>
+                      {% else %}
+                        {% for eid in r.expected_kb_ids %}
+                          <span class="badge badge-source">{{ eid }}</span>
+                        {% endfor %}
+                      {% endif %}
+                    </td>
+                    <td>
+                      {% for rid in r.retrieved_kb_ids %}
+                        <span class="badge badge-source">{{ rid }}</span>
+                      {% endfor %}
+                    </td>
+                    <td><strong>{{ r.max_cosine_similarity }}</strong></td>
+                    <td>
+                      {% if r.should_abstain %}
+                        {% if r.abstained %}
+                          <span class="badge badge-grounded">✓ Correctly Abstained</span>
+                        {% else %}
+                          <span class="badge badge-abstained">✗ False Answer</span>
+                        {% endif %}
+                      {% else %}
+                        {% if r.answer_correct %}
+                          <span class="badge badge-grounded">✓ Grounded & Accurate</span>
+                        {% else %}
+                          <span class="badge badge-abstained">⚠ Partial / Check</span>
+                        {% endif %}
+                      {% endif %}
+                    </td>
+                    <td>{{ r.timing_ms.total_ms }} ms</td>
+                    <td>
+                      <button type="button" class="btn-secondary test-in-chat-btn" data-q="{{ r.question }}">Test in Chat</button>
+                    </td>
+                  </tr>
+                {% endfor %}
+              {% else %}
+                <tr>
+                  <td colspan="8" style="text-align: center; padding: 2rem; color: var(--text-secondary);">
+                    Evaluation results are being generated. Click "Re-Run All 25 Test Questions on Ollama" above to refresh.
+                  </td>
+                </tr>
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: ARCHITECTURE & GROUP 1 TEAM -->
+    <section id="tab-about" class="tab-panel">
+      <div class="card" style="margin-bottom: 1.25rem;">
+        <div class="card-header">
+          <h2>⚙️ Retrieval-Augmented Generation (RAG) + Local Ollama Architecture</h2>
+        </div>
+        <div class="arch-flow">
+          <div class="arch-step">
+            <h4>Step 1: Verified Knowledge Base</h4>
+            <p>38 verified campus FAQ entries & official document sections with recorded sources (JSON, CSV, TXT).</p>
+          </div>
+          <div class="arch-step">
+            <h4>Step 2: NLP Preprocessing</h4>
+            <p>Unicode normalization, contraction handling, campus abbreviation expansion (BSCS, LMS, HoD, FYP), & stopword filtering.</p>
+          </div>
+          <div class="arch-step">
+            <h4>Step 3: Pretrained Embeddings</h4>
+            <p>Dense vector representation of passages and student queries via Ollama's local embedding API (<code>{{ active_embed_model }}</code>).</p>
+          </div>
+          <div class="arch-step">
+            <h4>Step 4: Cosine Similarity Retrieval</h4>
+            <p>Computes vector cosine similarity $\cos(\theta) = \frac{\mathbf{q}\cdot\mathbf{d}}{\|\mathbf{q}\|\|\mathbf{d}\|}$ and checks relevance threshold to filter out-of-scope queries.</p>
+          </div>
+          <div class="arch-step">
+            <h4>Step 5: Grounded Ollama LLM</h4>
+            <p>Passes Top-K retrieved passages to the local Ollama LLM (<code>{{ active_llm_model }}</code>) to synthesize a source-cited answer or abstain.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Group 1 Members Table -->
+      <div class="card">
+        <div class="card-header">
+          <h2>👥 Group 1 Members & Work Distribution ({{ project.course }} – {{ project.section }})</h2>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Registration No.</th>
+                <th>Student Name</th>
+                <th>Assigned Role & Contribution (Per Proposal)</th>
+                <th>Implemented Project Modules</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for m in project.members %}
+                <tr>
+                  <td>{{ m.sno }}</td>
+                  <td><strong>{{ m.reg_no }}</strong></td>
+                  <td><strong>{{ m.name }}</strong></td>
+                  <td>{{ m.role }}</td>
+                  <td><code>{{ m.module }}</code></td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

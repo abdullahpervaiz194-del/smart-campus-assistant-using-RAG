@@ -1,0 +1,290 @@
+[
+  {
+    "id": "KB-001",
+    "category": "Admissions & Registration",
+    "title": "Undergraduate Admission Procedure and General Requirements",
+    "content": "Applications for undergraduate admission open twice a year for Fall (July-August) and Spring (December-January) semesters through the online admissions portal. Applicants must submit attested copies of Matric/O-Level and Intermediate/A-Level transcripts, CNIC or B-Form, domicile certificate, and four passport-size photographs. All candidates must appear in the University Admission Test (UAT) or submit a valid NAT/SAT score. Final merit is calculated as 50% Intermediate marks, 40% Admission Test score, and 10% Matriculation marks.",
+    "source": "Official Admission Prospectus 2026-27, Section 2.1 (Admissions Office)",
+    "keywords": ["admission", "apply", "undergraduate", "requirements", "merit", "uat", "test", "fall", "spring", "documents"]
+  },
+  {
+    "id": "KB-002",
+    "category": "Admissions & Registration",
+    "title": "Eligibility Criteria for BS Computer Science and BS Artificial Intelligence",
+    "content": "To be eligible for admission to BS Computer Science (BSCS) or BS Artificial Intelligence (BSAI), applicants must have completed Intermediate (F.Sc Pre-Engineering, F.Sc Pre-Medical with additional Math course, or ICS) or A-Levels with at least 50% aggregate marks (minimum 60% preferred for open merit). Pre-Medical students admitted to computing programs are required to pass two non-credit deficiency Mathematics courses during their first two semesters.",
+    "source": "Official Admission Prospectus 2026-27, Section 3.4 (Faculty of Computing)",
+    "keywords": ["eligibility", "bscs", "bsai", "computer science", "artificial intelligence", "fsc", "ics", "pre-medical", "marks", "percentage"]
+  },
+  {
+    "id": "KB-003",
+    "category": "Admissions & Registration",
+    "title": "Semester Course Registration and Add/Drop Deadlines",
+    "content": "Continuing students must register for semester courses via the Student LMS Portal during the week prior to the start of classes. The Course Add/Drop period remains open during the first two weeks of the semester without penalty. A student can withdraw from a course (receiving a 'W' grade on the transcript) up to the end of the 10th week of the semester with the approval of the Batch Advisor and Head of Department (HoD).",
+    "source": "Academic Regulations Handbook 2026, Clause 4.2 (Office of the Registrar)",
+    "keywords": ["registration", "course", "add", "drop", "withdraw", "deadline", "semester", "enrollment", "w grade"]
+  },
+  {
+    "id": "KB-004",
+    "category": "Admissions & Registration",
+    "title": "Admission Office Location and Contact Information",
+    "content": "The Directorate of Admissions is located on the Ground Floor, Room G-04 of the Main Administration Block (Block A) near Gate 1. Students and prospective applicants can visit in person, call the Admission Helpline at (051) 920-1101 Ext. 204, or email admissions@campus.edu.pk for inquiries regarding application status, merit lists, and entry test schedules.",
+    "source": "Campus Directory & Student Guide 2026, Page 4 (Directorate of Admissions)",
+    "keywords": ["admission office", "location", "contact", "phone", "email", "helpline", "block a", "G-04"]
+  },
+  {
+    "id": "KB-005",
+    "category": "Fee Information & Scholarships",
+    "title": "Undergraduate Semester Tuition Fee Structure",
+    "content": "For BS Computing programs (BSCS, BSAI, BSSE), the regular tuition fee is Rs. 4,500 per credit hour. A standard 18-credit-hour semester costs Rs. 81,000 in tuition, plus Rs. 8,500 in semester institutional charges (laboratory, library, examination, and internet fee), bringing the total regular semester fee to Rs. 89,500. New admissions also pay a one-time non-refundable Admission Fee of Rs. 20,000 and a refundable Security Deposit of Rs. 10,000.",
+    "source": "Finance & Accounts Notification #FIN-2026-12 (Treasurer Office)",
+    "keywords": ["fee", "tuition", "credit hour", "cost", "charges", "admission fee", "security deposit", "semester fee"]
+  },
+  {
+    "id": "KB-006",
+    "category": "Fee Information & Scholarships",
+    "title": "Fee Payment Procedure, Installments, and Late Fine Policy",
+    "content": "Fee challans are generated on the Student LMS Portal two weeks before the start of each semester. Fees can be paid at any branch of Allied Bank or HBL, or online via 1Bill/Kuickpay using the 14-digit voucher number. After the due date, a late payment fine of Rs. 200 per day is charged for up to 15 days. Students facing financial hardship may apply for a two-installment payment plan at the Student Financial Aid Office (Block A, Room 108) at least three days before the fee deadline.",
+    "source": "Finance & Accounts Notification #FIN-2026-15 (Accounts Section)",
+    "keywords": ["fee payment", "challan", "voucher", "bank", "online", "late fine", "installment", "deadline"]
+  },
+  {
+    "id": "KB-007",
+    "category": "Fee Information & Scholarships",
+    "title": "Merit Scholarships and Need-Based Financial Aid",
+    "content": "The university offers three major scholarship schemes: (1) Semester Merit Scholarship: Top 3 position holders in each batch and section with a SGPA of 3.75 or above receive 75%, 50%, and 25% tuition fee waivers respectively; (2) Need-Based Financial Aid & HEC Ehsaas/Benazir Undergraduate Scholarship: Covers up to 100% tuition fee based on verified family income; (3) Kinship Concession: A 25% tuition discount is awarded to the second sibling studying concurrently at the university.",
+    "source": "Student Financial Aid & Scholarship Policy 2026, Section 5 (Financial Aid Office)",
+    "keywords": ["scholarship", "merit", "financial aid", "need based", "discount", "waiver", "sibling", "kinship", "cgpa", "sgpa"]
+  },
+  {
+    "id": "KB-008",
+    "category": "Fee Information & Scholarships",
+    "title": "National HEC Tuition Fee Refund Policy",
+    "content": "In accordance with HEC guidelines, newly admitted students who apply for admission cancellation are entitled to a 100% tuition fee refund up to the 7th day of the convening of classes, and a 50% tuition fee refund from the 8th to the 15th day of classes. From the 16th day of classes onward, no tuition fee is refunded; however, the refundable security deposit of Rs. 10,000 is returned in full upon clearance.",
+    "source": "Academic & Financial Rules 2026, Section 6.3 (Treasurer Office)",
+    "keywords": ["refund", "fee refund", "cancellation", "drop admission", "hec policy", "security deposit"]
+  },
+  {
+    "id": "KB-009",
+    "category": "Departments & Locations",
+    "title": "Department of Computer Science and Artificial Intelligence Location",
+    "content": "The Department of Computer Science and Artificial Intelligence is housed in Academic Block C (Computing & IT Building). The Head of Department (HoD) Office and Department Coordinator Office are located on the 1st Floor, Rooms C-101 and C-102. Lecture halls C-103 to C-110 are on the 1st floor, while the AI & Robotics Lab (Lab 4), Programming Labs (Labs 1-3), and Faculty Offices are located on the 2nd Floor of Block C.",
+    "source": "Campus Master Map & Department Directory 2026, Page 8 (Faculty of Computing)",
+    "keywords": ["computer science", "ai department", "block c", "hod office", "coordinator", "location", "ai lab", "labs"]
+  },
+  {
+    "id": "KB-010",
+    "category": "Departments & Locations",
+    "title": "Registrar Office, Examination Cell, and Admin Block Locations",
+    "content": "The Main Administration Block (Block A) houses the central administrative offices: Ground Floor contains the Admissions Office (G-04), Student One-Window Facilitation Desk (G-01), and Accounts/Fee Section (G-08). The 1st Floor of Block A houses the Registrar Office (A-102), Financial Aid Office (A-108), and Controller of Examinations Cell (A-112) where transcripts, degrees, and provisional certificates are issued.",
+    "source": "Campus Master Map & Department Directory 2026, Page 3 (Administration)",
+    "keywords": ["registrar", "admin block", "block a", "examination cell", "one-window", "accounts office", "transcript", "degree"]
+  },
+  {
+    "id": "KB-011",
+    "category": "Departments & Locations",
+    "title": "Department of Electrical Engineering and Business Studies Locations",
+    "content": "The Department of Electrical and Electronics Engineering is located in Academic Block B, featuring power, electronics, and embedded systems laboratories on the ground floor and lecture rooms on the first floor. The Department of Management Sciences (BBA/MBA) and Humanities is located in Academic Block D, opposite the Central Library.",
+    "source": "Campus Master Map & Department Directory 2026, Page 10 (Academic Blocks)",
+    "keywords": ["electrical engineering", "block b", "management sciences", "bba", "block d", "departments", "location"]
+  },
+  {
+    "id": "KB-012",
+    "category": "Departments & Locations",
+    "title": "Campus Medical Center and Emergency First-Aid Services",
+    "content": "The Campus Medical Center (Dispensary) is located in the Student Center Building, Ground Floor, Room SC-02, adjacent to the Sports Complex. A qualified medical officer and nursing staff are on duty from 8:00 AM to 4:00 PM (Monday to Friday) to provide free primary consultation, basic medicines, and first-aid care. A campus ambulance is available on standby at Gate 2 for medical emergencies (Emergency Extension: 1122 or 051-920-1199).",
+    "source": "Student Welfare & Health Services Notice #MED-2026-01",
+    "keywords": ["medical", "doctor", "dispensary", "clinic", "ambulance", "emergency", "first aid", "health", "student center"]
+  },
+  {
+    "id": "KB-013",
+    "category": "Departments & Locations",
+    "title": "Campus Cafeteria, Tuck Shop, and Prayer Areas",
+    "content": "The Central Student Cafeteria is located in the Student Center Building and operates from 8:00 AM to 5:00 PM, serving breakfast, hot meals, snacks, and beverages at subsidized university rates. A stationary and photocopying shop (Photocopier & Bookshop) is located next to the Cafeteria in Room SC-05. The Central Campus Mosque is located near Gate 2, and a dedicated female prayer and common room is located in Block C, Ground Floor (Room C-005).",
+    "source": "Campus Facilities Guide 2026, Section 8 (Student Affairs)",
+    "keywords": ["cafeteria", "canteen", "food", "photocopy", "stationary", "mosque", "prayer room", "common room"]
+  },
+  {
+    "id": "KB-014",
+    "category": "Office Timings & Student Services",
+    "title": "General University Office Timings and Public Dealing Hours",
+    "content": "Regular university administrative offices operate Monday through Friday from 8:30 AM to 4:30 PM. Student public dealing hours at the One-Window Facilitation Desk, Registrar Office, and Examination Cell are from 9:00 AM to 3:30 PM, with a lunch and prayer break from 1:00 PM to 2:00 PM. All administrative offices remain closed on Saturdays and Sundays.",
+    "source": "Registrar Office Circular #REG-2026-03 (Office Timings)",
+    "keywords": ["timings", "office hours", "working hours", "open", "close", "break", "saturday", "sunday", "public dealing"]
+  },
+  {
+    "id": "KB-015",
+    "category": "Office Timings & Student Services",
+    "title": "Friday Timings and Ramadan Schedule",
+    "content": "On Fridays, classes and administrative offices start at 8:30 AM, observe a Jumma prayer break from 12:30 PM to 2:15 PM, and resume until 4:30 PM. During the holy month of Ramadan, the university follows reduced timings from 8:00 AM to 2:00 PM (Monday to Thursday) and 8:00 AM to 12:30 PM on Fridays without a lunch break.",
+    "source": "Registrar Office Circular #REG-2026-07 (Special Schedules)",
+    "keywords": ["friday timings", "jumma break", "ramadan timings", "schedule", "hours"]
+  },
+  {
+    "id": "KB-016",
+    "category": "Office Timings & Student Services",
+    "title": "Faculty Consultation Hours and Academic Advising",
+    "content": "Every faculty member displays their weekly Student Consultation and Office Hours (minimum 4 hours per week) outside their office door and on the course LMS page. Students are encouraged to visit course instructors during posted consultation hours for academic help, project guidance, or quiz/assignment review. Additionally, each student batch is assigned a Batch Advisor in the department for course planning and academic counseling.",
+    "source": "Faculty of Computing Student Handbook 2026, Section 5.1",
+    "keywords": ["faculty", "teacher", "consultation hours", "office hours", "batch advisor", "counseling", "meeting"]
+  },
+  {
+    "id": "KB-017",
+    "category": "Office Timings & Student Services",
+    "title": "Official Transcript, Bonafide Certificate, and Degree Issuance Procedure",
+    "content": "Students requiring a Bonafide Certificate, Character Certificate, or Semester Transcript must submit a request through the One-Window Facilitation Desk (Block A, Room G-01) along with the prescribed fee voucher (Rs. 500 for Bonafide Certificate, Rs. 1,500 for Official Transcript). Normal processing takes 3 working days, while urgent requests are processed within 24 working hours.",
+    "source": "Controller of Examinations SOP #EXAM-2026-09",
+    "keywords": ["bonafide", "certificate", "transcript", "degree", "one-window", "issuance", "urgent", "document"]
+  },
+  {
+    "id": "KB-018",
+    "category": "Library Rules & Resources",
+    "title": "Central Library Timings and Access Policy",
+    "content": "The Central University Library (located between Block C and Block D) is open Monday to Friday from 8:00 AM to 7:00 PM, and on Saturdays from 9:00 AM to 3:00 PM (during examination weeks, weekday hours are extended until 9:00 PM). Students must scan their valid University ID Card at the entrance turnstile. Silence must be maintained in all reading halls, and food or drinks (except capped water bottles) are strictly prohibited.",
+    "source": "University Library Rules & Regulations Notice #LIB-2026-01",
+    "keywords": ["library", "library timings", "open", "hours", "saturday", "rules", "id card", "reading hall"]
+  },
+  {
+    "id": "KB-019",
+    "category": "Library Rules & Resources",
+    "title": "Book Borrowing Limits and Loan Duration",
+    "content": "Undergraduate students can borrow up to 4 books at a time for a period of 14 days. MS/MPhil and Final-Year Project (FYP) students can borrow up to 6 books for 21 days. Borrowed books may be renewed once for an additional 7 days online through the Library OPAC Portal or at the Circulation Desk, provided no other user has placed a reservation hold on the book. Reference books, encyclopedias, and past thesis copies cannot be checked out and must be read within the library.",
+    "source": "University Library Rules & Regulations Notice #LIB-2026-02 (Circulation Policy)",
+    "keywords": ["borrow", "books", "limit", "loan", "days", "renew", "library", "reference", "fyp"]
+  },
+  {
+    "id": "KB-020",
+    "category": "Library Rules & Resources",
+    "title": "Library Overdue Fines and Lost Book Policy",
+    "content": "A fine of Rs. 20 per day per book is charged for overdue library books returned after the due date. If a student loses or damages a borrowed book, they must either replace it with the latest edition of the same book or pay double the current market price of the book along with a Rs. 300 processing fee. Library clearance is mandatory before receiving semester admit cards or final transcripts.",
+    "source": "University Library Rules & Regulations Notice #LIB-2026-04 (Fines & Clearance)",
+    "keywords": ["library fine", "overdue", "late book", "lost book", "damaged", "clearance", "penalty"]
+  },
+  {
+    "id": "KB-021",
+    "category": "Library Rules & Resources",
+    "title": "HEC Digital Library, IEEE Xplore, and Turnitin Plagiarism Check",
+    "content": "The Central Library provides free access to the HEC National Digital Library, including IEEE Xplore, ACM Digital Library, ScienceDirect, and SpringerLink from any computer or device connected to the campus network. Final-Year Project (FYP) and thesis students can request an official Turnitin similarity/plagiarism report by emailing their document to library.turnitin@campus.edu.pk; the maximum allowed similarity index is 19% overall (less than 5% from a single source).",
+    "source": "Digital Library & Research Support Circular #LIB-2026-08",
+    "keywords": ["digital library", "ieee", "acm", "research papers", "turnitin", "plagiarism", "similarity", "fyp", "thesis"]
+  },
+  {
+    "id": "KB-022",
+    "category": "Examinations & Academic Policy",
+    "title": "Mandatory Class Attendance Requirement (75% Rule)",
+    "content": "According to university and HEC regulations, a student must maintain at least 75% attendance in lectures and laboratory sessions separately for every registered course. Students whose attendance falls below 75% in a course are declared 'Short of Attendance' (SA) and are not permitted to sit in the Final Term Examination of that course. Medical leave does not waive the 75% attendance requirement, as the 25% margin already covers emergencies and illness.",
+    "source": "Controller of Examinations Academic Handbook 2026, Page 14 (Section 7.1)",
+    "keywords": ["attendance", "75%", "short of attendance", "exam", "medical leave", "absent", "policy", "rule"]
+  },
+  {
+    "id": "KB-023",
+    "category": "Examinations & Academic Policy",
+    "title": "Course Assessment Breakdown and Exam Weightage",
+    "content": "For standard theory courses, the semester evaluation weightage is distributed as follows: Quizzes (10-15%), Assignments/Project (10-15%), Midterm Examination (25%), and Final Term Examination (50%). For 1-credit-hour laboratory courses, assessment comprises weekly lab tasks and viva (40%), Lab Midterm/Project (20%), and Final Lab Exam (40%). Students must bring their University ID Card and Exam Admit Slip to enter any examination hall.",
+    "source": "Controller of Examinations Academic Handbook 2026, Page 16 (Section 7.3)",
+    "keywords": ["weightage", "marks", "midterm", "final exam", "quizzes", "assignments", "lab", "assessment", "admit slip"]
+  },
+  {
+    "id": "KB-024",
+    "category": "Examinations & Academic Policy",
+    "title": "Grading System, GPA, and CGPA Requirements for Graduation",
+    "content": "The university follows a relative-cum-absolute grading system on a 4.00 GPA scale: A (85% and above = 4.00), A- (80-84% = 3.67), B+ (75-79% = 3.33), B (71-74% = 3.00), B- (68-70% = 2.67), C+ (64-67% = 2.33), C (61-63% = 2.00), C- (58-60% = 1.67), D+ (54-57% = 1.33), D (50-53% = 1.00), and F (Below 50% = 0.00). To graduate with a BS degree, a student must complete 130-136 credit hours with a minimum Cumulative GPA (CGPA) of 2.00 out of 4.00.",
+    "source": "Controller of Examinations Academic Handbook 2026, Page 19 (Grading Policy)",
+    "keywords": ["grading", "gpa", "cgpa", "grade", "marks", "percentage", "graduation", "passing marks", "scale"]
+  },
+  {
+    "id": "KB-025",
+    "category": "Examinations & Academic Policy",
+    "title": "Academic Probation and Dismissal Policy",
+    "content": "Any undergraduate student whose CGPA falls below 2.00 at the end of a regular semester is placed on First Academic Probation for the following semester. If the student's CGPA remains below 2.00 after the next regular semester, they are placed on Second (Final) Probation. Failure to achieve a 2.00 CGPA after two consecutive probations results in academic dismissal from the program, though a student may repeat courses with 'D', 'C-', or 'F' grades to improve their CGPA.",
+    "source": "Controller of Examinations Academic Handbook 2026, Page 22 (Probation Rules)",
+    "keywords": ["probation", "cgpa", "below 2.0", "dismissal", "drop", "repeat course", "improve grade"]
+  },
+  {
+    "id": "KB-026",
+    "category": "Examinations & Academic Policy",
+    "title": "Make-up / Retake Examination Policy for Missed Exams",
+    "content": "There is no make-up test for missed quizzes. If a student misses a Midterm Examination due to genuine hospitalization, death of an immediate family member, or official university representation, they may submit a Make-up Exam Application to the HoD within 3 working days of the missed exam along with verified documentary proof and a Rs. 1,000 per paper retake fee. Missed Final Term Exams are granted an 'I' (Incomplete) grade only upon approval by the Academic Council Committee.",
+    "source": "Controller of Examinations Academic Handbook 2026, Page 25 (Make-up Policy)",
+    "keywords": ["makeup exam", "missed exam", "retake", "midterm", "final", "incomplete grade", "medical"]
+  },
+  {
+    "id": "KB-027",
+    "category": "IT Support, LMS & Wi-Fi",
+    "title": "LMS Portal Login, Course Materials, and Password Reset",
+    "content": "All students are issued a Student LMS & CMS Portal account upon enrollment using their Registration Number (e.g., 18352) as the username. Course slides, assignments, attendance records, fee challans, and exam results are posted on the LMS Portal (https://lms.campus.edu.pk). If a student forgets their LMS password or gets locked out, they can use the 'Forgot Password' link via their registered email or visit the IT Helpdesk in Block C, Ground Floor, Room C-002 with their Student ID Card.",
+    "source": "Directorate of IT Services Guide #IT-2026-01 (Student Portals)",
+    "keywords": ["lms", "portal", "password", "reset", "login", "it helpdesk", "cms", "attendance", "results"]
+  },
+  {
+    "id": "KB-028",
+    "category": "IT Support, LMS & Wi-Fi",
+    "title": "Campus Wi-Fi Access and Official Student Email",
+    "content": "Free high-speed Wi-Fi ('Campus-Student-WiFi' and 'eduroam') is available across all academic blocks, the library, and the cafeteria. Each student can register up to two devices (one laptop and one smartphone) at the IT Helpdesk (Room C-002) using their device MAC address and LMS credentials. Every enrolled student also receives an official Microsoft 365 email account (regno@student.campus.edu.pk) which grants free access to MS Office 365, OneDrive storage, and GitHub Student Developer Pack.",
+    "source": "Directorate of IT Services Guide #IT-2026-03 (Network & Email)",
+    "keywords": ["wifi", "wi-fi", "internet", "eduroam", "mac address", "student email", "office 365", "github"]
+  },
+  {
+    "id": "KB-029",
+    "category": "IT Support, LMS & Wi-Fi",
+    "title": "Computer Labs and AI Lab Usage Rules",
+    "content": "The Department of Computing operates four general programming labs (Labs 1-3, Block C) and a dedicated AI & Deep Learning Lab (Lab 4, Block C, 2nd Floor) equipped with GPU workstations (NVIDIA RTX GPUs with Python, PyTorch, and Ollama pre-installed). When not scheduled for classes, labs are open for student practice and Final-Year Project work from 8:30 AM to 4:30 PM. Installing unauthorized software, connecting infected USB drives, or eating inside the labs is strictly forbidden.",
+    "source": "Faculty of Computing Lab Policy Notice #LAB-2026-02",
+    "keywords": ["computer lab", "ai lab", "gpu", "workstation", "lab rules", "block c", "practice", "fyp"]
+  },
+  {
+    "id": "KB-030",
+    "category": "Hostel, Transport & Facilities",
+    "title": "University Hostel Accommodation and Application Process",
+    "content": "The university provides separate on-campus and university-managed hostel accommodation for out-of-station male and female students. Hostel seats are allotted on a first-come, first-served and distance-priority basis at the start of the Fall semester. The hostel fee is Rs. 36,000 per semester (shared 3-seater room) plus monthly mess charges on an actual-cost basis. Hostel gate curfew time is 10:00 PM for male hostels and 8:30 PM for female hostels. Applications are submitted to the Provost/Hostel Warden Office in the Student Center (Room SC-10).",
+    "source": "Hostel Administration & Provost Circular #HST-2026-02",
+    "keywords": ["hostel", "accommodation", "room", "mess", "hostel fee", "curfew", "warden", "provost", "boys", "girls"]
+  },
+  {
+    "id": "KB-031",
+    "category": "Hostel, Transport & Facilities",
+    "title": "Campus Bus Transport Routes, Timings, and Charges",
+    "content": "The University Transport Office operates 12 buses covering major city routes. Morning pick-up buses arrive on campus at 8:10 AM, and afternoon departure buses leave the Campus Bus Bay (Gate 3) in two shifts: 1:45 PM and 4:35 PM. The semester transport fee is Rs. 22,000 per semester. Students must carry their Transport Pass along with their University ID Card to board the bus. Route maps and seat registration are handled at the Transport Office near Gate 3.",
+    "source": "University Transport Section Schedule #TRN-2026-05",
+    "keywords": ["bus", "transport", "routes", "shuttle", "timings", "transport fee", "gate 3", "departure"]
+  },
+  {
+    "id": "KB-032",
+    "category": "Hostel, Transport & Facilities",
+    "title": "Sports Complex, Gymnasium, and Extracurricular Facilities",
+    "content": "The Campus Sports Complex includes a cricket/football ground, basketball and badminton courts, table tennis arena, and an indoor gymnasium. Facilities are open to students from 9:00 AM to 5:00 PM daily. Dedicated female-only gym and indoor sports hours are scheduled daily from 11:00 AM to 1:30 PM. Sports equipment can be borrowed from the Sports Officer (Sports Complex Room SP-01) by depositing the Student ID Card.",
+    "source": "Directorate of Sports & Student Affairs Notice #SPT-2026-01",
+    "keywords": ["sports", "gym", "cricket", "football", "badminton", "table tennis", "female hours", "equipment"]
+  },
+  {
+    "id": "KB-033",
+    "category": "Hostel, Transport & Facilities",
+    "title": "Student ID Card, Lost Card Replacement, and Parking Sticker Policy",
+    "content": "Every student is required to wear and display their University ID Card at all times while on campus. If a Student ID Card is lost or damaged, the student must report it immediately to the Student One-Window Desk (Block A, G-01) and pay a duplicate card fee of Rs. 800. Students bringing motorcycles or cars to campus must obtain a semester vehicle parking sticker (Rs. 1,000 for bikes, Rs. 2,500 for cars) from the Chief Security Officer's Office at Gate 1 by providing vehicle registration and a valid driving license.",
+    "source": "Campus Security & Administration SOP #SEC-2026-04",
+    "keywords": ["id card", "lost card", "duplicate", "parking", "sticker", "bike", "car", "security", "gate 1"]
+  },
+  {
+    "id": "KB-034",
+    "category": "Student Support & Career Services",
+    "title": "Career Counseling, Internship Requirement, and Job Placement Office",
+    "content": "The Office of Industrial Linkages and Career Services (Block A, 2nd Floor, Room A-204) assists students with CV writing, mock interviews, annual job fairs, and industry placements. All undergraduate computing students (BSCS/BSAI) are required to complete a mandatory 6-to-8-week summer internship after their 6th semester as a degree requirement. Students must submit their Internship Offer Letter and Completion Certificate to the Departmental Internship Coordinator for verification.",
+    "source": "Career Services & Industrial Linkages Handbook 2026, Section 3",
+    "keywords": ["internship", "career", "job fair", "placement", "cv", "6th semester", "graduation requirement"]
+  },
+  {
+    "id": "KB-035",
+    "category": "Student Support & Career Services",
+    "title": "Final Year Project (FYP) Registration and Evaluation Policy",
+    "content": "Undergraduate students register for Final Year Project Part-I (FYP-I, 3 credit hours) in their 7th semester and FYP-II (3 credit hours) in their 8th semester, in groups of 2 to 3 students under the supervision of a faculty member. Proposals must be approved by the Departmental FYP Committee by the 3rd week of the 7th semester. Projects are evaluated through Proposal Defense, Mid-Year Progress Defense, Final Demonstration/Viva, and a Plagiarism-Cleared Technical Report.",
+    "source": "Faculty of Computing FYP Guidelines 2026, Section 1.2 (FYP Coordinator Office)",
+    "keywords": ["fyp", "final year project", "7th semester", "8th semester", "proposal", "defense", "viva", "supervisor"]
+  },
+  {
+    "id": "KB-036",
+    "category": "Student Support & Career Services",
+    "title": "Student Societies, Psychological Counseling, and Anti-Harassment Cell",
+    "content": "Students can join official campus societies including the AI & Data Science Society, ACM Student Chapter, Debating Club, and Blood Donor Society through the Directorate of Student Affairs (Student Center, Room SC-08). Free and strictly confidential psychological counseling is available by appointment with the Campus Counselor in Room SC-06 (counselor@campus.edu.pk). Furthermore, the university enforces a zero-tolerance policy against harassment under HEC guidelines; complaints can be lodged confidentially with the Focal Person of the Anti-Harassment Committee in Block A, Room A-210.",
+    "source": "Student Affairs & Welfare Charter 2026, Section 9",
+    "keywords": ["societies", "clubs", "ai society", "acm", "counseling", "mental health", "harassment", "complaint", "student affairs"]
+  }
+]

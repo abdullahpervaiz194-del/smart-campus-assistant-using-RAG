@@ -1,0 +1,202 @@
+[
+  {
+    "id": "TQ-01",
+    "question": "How is the final merit calculated for undergraduate admission?",
+    "category": "Admissions & Registration",
+    "expected_kb_ids": ["KB-001"],
+    "expected_keywords": ["50%", "40%", "10%", "intermediate", "test"],
+    "should_abstain": false
+  },
+  {
+    "id": "TQ-02",
+    "question": "Can F.Sc Pre-Medical students apply for BS Artificial Intelligence or BSCS?",
+    "category": "Admissions & Registration",
+    "expected_kb_ids": ["KB-002"],
+    "expected_keywords": ["pre-medical", "50%", "deficiency", "mathematics"],
+    "should_abstain": false
+  },
+  {
+    "id": "TQ-03",
+    "question": "What is the deadline for adding or dropping a course in a semester?",
+    "category": "Admissions & Registration",
+    "expected_kb_ids": ["KB-003"],
+    "expected_keywords": ["two weeks", "10th week", "withdraw"],
+    "should_abstain": false
+  },
+  {
+    "id": "TQ-04",
+    "question": "Where is the Admission Office located and what is their helpline number?",
+    "category": "Admissions & Registration",
+    "expected_kb_ids": ["KB-004", "KB-010"],
+    "expected_keywords": ["G-04", "Block A", "920-1101", "admissions@campus.edu.pk"],
+    "should_abstain": false
+  },
+  {
+    "id": "TQ-05",
+    "question": "What is the per credit hour tuition fee and total semester fee for BSCS and BSAI?",
+    "category": "Fee Information & Scholarships",
+    "expected_kb_ids": ["KB-005"],
+    "expected_keywords": ["4,500", "81,000", "89,500"],
+    "should_abstain": false
+  },
+  {
+    "id": "TQ-06",
+    "question": "How much is the late fee fine per day if I pay my fee challan after the due date?",
+    "category": "Fee Information & Scholarships",
+    "expected_kb_ids": ["KB-006"],
+    "expected_keywords": ["200", "15 days", "installment"],
+    "should_abstain": false
+  },
+  {
+    "id": "TQ-07",
+    "question": "What scholarships or sibling fee discounts are available at the university?",
+    "category": "Fee Information & Scholarships",
+    "expected_kb_ids": ["KB-007"],
+    "expected_keywords": ["3.75", "75%", "50%", "25%", "sibling", "kinship"],
+    "should_abstain": false
+  },
+  {
+    "id": "TQ-08",
+    "question": "Where is the Department of Computer Science and AI Lab located on campus?",
+    "category": "Departments & Locations",
+    "expected_kb_ids": ["KB-009", "KB-029"],
+    "expected_keywords": ["Block C", "C-101", "Lab 4", "2nd Floor"],
+    "should_abstain": false
+  },
+  {
+    "id": "TQ-09",
+    "question": "Where can I find the Campus Medical Center and what is the emergency ambulance number?",
+    "category": "Departments & Locations",
+    "expected_kb_ids": ["KB-012"],
+    "expected_keywords": ["SC-02", "Student Center", "8:00 AM", "1122"],
+    "should_abstain": false
+  },
+  {
+    "id": "TQ-10",
+    "question": "What are the regular university office timings and public dealing hours?",
+    "category": "Office Timings & Student Services",
+    "expected_kb_ids": ["KB-014"],
+    "expected_keywords": ["8:30 AM", "4:30 PM", "9:00 AM", "3:30 PM", "1:00 PM"],
+    "should_abstain": false
+  },
+  {
+    "id": "TQ-11",
+    "question": "How can I get a Bonafide Certificate or official transcript and how much does it cost?",
+    "category": "Office Timings & Student Services",
+    "expected_kb_ids": ["KB-017", "KB-010"],
+    "expected_keywords": ["One-Window", "500", "1,500", "3 working days"],
+    "should_abstain": false
+  },
+  {
+    "id": "TQ-12",
+    "question": "What are the Central Library timings on weekdays and Saturdays?",
+    "category": "Library Rules & Resources",
+    "expected_kb_ids": ["KB-018"],
+    "expected_keywords": ["8:00 AM", "7:00 PM", "9:00 AM", "3:00 PM", "Saturday"],
+    "should_abstain": false
+  },
+  {
+    "id": "TQ-13",
+    "question": "How many books can an undergraduate student borrow from the library and what is the overdue fine?",
+    "category": "Library Rules & Resources",
+    "expected_kb_ids": ["KB-019", "KB-020"],
+    "expected_keywords": ["4 books", "14 days", "Rs. 20"],
+    "should_abstain": false
+  },
+  {
+    "id": "TQ-14",
+    "question": "What is the minimum attendance percentage required to sit in the final exam?",
+    "category": "Examinations & Academic Policy",
+    "expected_kb_ids": ["KB-022"],
+    "expected_keywords": ["75%", "Short of Attendance", "Final Term"],
+    "should_abstain": false
+  },
+  {
+    "id": "TQ-15",
+    "question": "What is the minimum CGPA required for graduation and when is a student placed on academic probation?",
+    "category": "Examinations & Academic Policy",
+    "expected_kb_ids": ["KB-024", "KB-025"],
+    "expected_keywords": ["2.00", "probation", "130"],
+    "should_abstain": false
+  },
+  {
+    "id": "TQ-16",
+    "question": "How can I reset my forgotten LMS portal password or register my laptop for campus Wi-Fi?",
+    "category": "IT Support, LMS & Wi-Fi",
+    "expected_kb_ids": ["KB-027", "KB-028"],
+    "expected_keywords": ["C-002", "IT Helpdesk", "Block C", "MAC address"],
+    "should_abstain": false
+  },
+  {
+    "id": "TQ-17",
+    "question": "What is the semester hostel fee and curfew time for male and female hostels?",
+    "category": "Hostel, Transport & Facilities",
+    "expected_kb_ids": ["KB-030"],
+    "expected_keywords": ["36,000", "10:00 PM", "8:30 PM"],
+    "should_abstain": false
+  },
+  {
+    "id": "TQ-18",
+    "question": "What are the campus bus departure timings and semester transport charges?",
+    "category": "Hostel, Transport & Facilities",
+    "expected_kb_ids": ["KB-031"],
+    "expected_keywords": ["1:45 PM", "4:35 PM", "22,000", "Gate 3"],
+    "should_abstain": false
+  },
+  {
+    "id": "TQ-19",
+    "question": "Is a summer internship mandatory for BSCS and BSAI students to graduate?",
+    "category": "Student Support & Career Services",
+    "expected_kb_ids": ["KB-034"],
+    "expected_keywords": ["6-to-8-week", "6th semester", "mandatory"],
+    "should_abstain": false
+  },
+  {
+    "id": "TQ-20",
+    "question": "What is the best recipe for baking a chocolate lava cake at home?",
+    "category": "Out of Scope (General Trivia / Cooking)",
+    "expected_kb_ids": [],
+    "expected_keywords": [],
+    "should_abstain": true
+  },
+  {
+    "id": "TQ-21",
+    "question": "Who won the FIFA Football World Cup in 2022 and how many goals did Messi score?",
+    "category": "Out of Scope (Sports Trivia)",
+    "expected_kb_ids": [],
+    "expected_keywords": [],
+    "should_abstain": true
+  },
+  {
+    "id": "TQ-22",
+    "question": "Does the university campus have an international airport and submarine dock for students?",
+    "category": "Out of Scope (Unsupported Campus Facility)",
+    "expected_kb_ids": [],
+    "expected_keywords": [],
+    "should_abstain": true
+  },
+  {
+    "id": "TQ-23",
+    "question": "What is the current stock price of Bitcoin and NVIDIA on Wall Street today?",
+    "category": "Out of Scope (Finance / Crypto)",
+    "expected_kb_ids": [],
+    "expected_keywords": [],
+    "should_abstain": true
+  },
+  {
+    "id": "TQ-24",
+    "question": "Can you prescribe antibiotics for a severe toothache and ear infection?",
+    "category": "Out of Scope (Medical Prescription)",
+    "expected_kb_ids": [],
+    "expected_keywords": [],
+    "should_abstain": true
+  },
+  {
+    "id": "TQ-25",
+    "question": "What are the visa requirements for tourist travel to Japan and South Korea?",
+    "category": "Out of Scope (Travel / Visa)",
+    "expected_kb_ids": [],
+    "expected_keywords": [],
+    "should_abstain": true
+  }
+]
