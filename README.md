@@ -10,11 +10,11 @@
 
 | S.No | Reg. No. | Student Name | Role & Implemented Modules |
 | :--- | :--- | :--- | :--- |
-| **1** | **18352** | **Abdullah** | Group coordination, requirements, Flask web application & system integration (`app.py`, `templates/`, `static/`) |
-| **2** | **18365** | **Talha** | Collecting, verifying & organizing official campus notices and knowledge base (`data/campus_knowledge_base.json`, `data/campus_knowledge_base.csv`, `src/knowledge_base.py`) |
-| **3** | **18333** | **Aftab** | NLP question preprocessing, document chunking & cosine similarity retrieval (`src/nlp_processor.py`, `src/retriever.py`) |
-| **4** | **18292** | **Shahzad** | Local Ollama setup, embedding & LLM API integration, grounded answer generation & abstention guard (`src/llm_generator.py`) |
-| **5** | **18165** | **Hafeez Khan** | 25-question evaluation benchmark, retrieval/answer/abstention testing, technical report & viva documentation (`src/evaluator.py`, `evaluate.py`, `docs/TECHNICAL_REPORT.md`) |
+| **1** | **18352** | **Abdullah** | **Module 1 (Lead AI & Core RAG Retrieval Engine):** Dense vector embeddings via Ollama (`/api/embed`), NumPy Cosine Similarity calculation, hybrid scoring, similarity threshold & out-of-scope abstention guard (`src/retriever.py`, `src/config.py`) |
+| **2** | **18333** | **Aftab** | **Module 2 (NLP Preprocessing & Local LLM Generation):** NLP question cleaning, abbreviation expansion, document chunking & Ollama LLM API integration (`/api/chat`) for grounded answer generation (`src/nlp_processor.py`, `src/llm_generator.py`) |
+| **3** | **18365** | **Talha** | **Module 3 (Flask Web Application & Frontend UI):** Flask backend routes, REST APIs & interactive 4-tab Live RAG Inspector interface (`app.py`, `templates/index.html`, `static/js/app.js`, `static/css/style.css`) |
+| **4** | **18292** | **Shahzad** | **Module 4 (Evaluation Benchmark & Response Testing):** Automated 25-question test benchmark, Retrieval Hit@1/Hit@3, answer accuracy, abstention testing & latency profiling (`src/evaluator.py`, `evaluate.py`, `data/test_questions.json`) |
+| **5** | **18165** | **Hafeez Khan** | **Module 5 (Campus Knowledge Base & Documentation):** Collecting, verifying & organizing 38 official campus FAQ entries and documents (JSON/CSV/TXT) with sources, technical report & presentation (`data/campus_knowledge_base.json`, `src/knowledge_base.py`, `docs/TECHNICAL_REPORT.md`) |
 
 ---
 
