@@ -25,18 +25,18 @@
   },
   {
     "id": "TQ-04",
-    "question": "Where is the Admission Office located and what is their helpline number?",
+    "question": "Where are the Admission Office, Registrar Office, and Student Service Officer located?",
     "category": "Admissions & Registration",
     "expected_kb_ids": ["KB-004", "KB-010"],
-    "expected_keywords": ["G-04", "Block A", "920-1101", "admissions@campus.edu.pk"],
+    "expected_keywords": ["ground floor", "main building", "920-1101", "admissions@campus.edu.pk"],
     "should_abstain": false
   },
   {
     "id": "TQ-05",
-    "question": "What is the per credit hour tuition fee and total semester fee for BSCS and BSAI?",
+    "question": "What is the total semester fee for all CS department programs and for Nursing?",
     "category": "Fee Information & Scholarships",
     "expected_kb_ids": ["KB-005"],
-    "expected_keywords": ["4,500", "81,000", "89,500"],
+    "expected_keywords": ["140,000", "180,000", "nursing"],
     "should_abstain": false
   },
   {
@@ -49,18 +49,18 @@
   },
   {
     "id": "TQ-07",
-    "question": "What scholarships or sibling fee discounts are available at the university?",
+    "question": "What is the scholarship criteria for CGPA above 3.5, CGPA between 3.00 and 3.5, and for female students?",
     "category": "Fee Information & Scholarships",
     "expected_kb_ids": ["KB-007"],
-    "expected_keywords": ["3.75", "75%", "50%", "25%", "sibling", "kinship"],
+    "expected_keywords": ["3.5", "3.00", "50%", "female"],
     "should_abstain": false
   },
   {
     "id": "TQ-08",
-    "question": "Where is the Department of Computer Science and AI Lab located on campus?",
+    "question": "Where are the HoD Office, Department of CS, Management Sciences, Examination Section, and Labs 1 to 12 located?",
     "category": "Departments & Locations",
-    "expected_kb_ids": ["KB-009", "KB-029"],
-    "expected_keywords": ["Block C", "C-101", "Lab 4", "2nd Floor"],
+    "expected_kb_ids": ["KB-009", "KB-010", "KB-029"],
+    "expected_keywords": ["3rd floor", "2nd floor", "ground floor", "basement", "main building"],
     "should_abstain": false
   },
   {
@@ -81,18 +81,18 @@
   },
   {
     "id": "TQ-11",
-    "question": "How can I get a Bonafide Certificate or official transcript and how much does it cost?",
-    "category": "Office Timings & Student Services",
-    "expected_kb_ids": ["KB-017", "KB-010"],
-    "expected_keywords": ["One-Window", "500", "1,500", "3 working days"],
+    "question": "Where are Blocks G, H, J, K, L, Blocks M, N, P, Q, R, and Blocks S, T, U, V, W located?",
+    "category": "Departments & Locations",
+    "expected_kb_ids": ["KB-011"],
+    "expected_keywords": ["building 2", "building 3", "building 4", "right", "left", "adjacent"],
     "should_abstain": false
   },
   {
     "id": "TQ-12",
-    "question": "What are the Central Library timings on weekdays and Saturdays?",
+    "question": "Where is the Central Library located and what are its timings on weekdays and Saturdays?",
     "category": "Library Rules & Resources",
-    "expected_kb_ids": ["KB-018"],
-    "expected_keywords": ["8:00 AM", "7:00 PM", "9:00 AM", "3:00 PM", "Saturday"],
+    "expected_kb_ids": ["KB-018", "KB-010"],
+    "expected_keywords": ["ground floor", "main building", "8:00 am", "7:00 pm", "saturday"],
     "should_abstain": false
   },
   {
@@ -124,7 +124,7 @@
     "question": "How can I reset my forgotten LMS portal password or register my laptop for campus Wi-Fi?",
     "category": "IT Support, LMS & Wi-Fi",
     "expected_kb_ids": ["KB-027", "KB-028"],
-    "expected_keywords": ["C-002", "IT Helpdesk", "Block C", "MAC address"],
+    "expected_keywords": ["ground floor", "main building", "it helpdesk", "mac address"],
     "should_abstain": false
   },
   {
