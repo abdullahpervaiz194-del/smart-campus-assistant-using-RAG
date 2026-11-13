@@ -121,6 +121,51 @@ class CampusKnowledgeBase:
         self.export_to_csv(KB_CSV_PATH)
         return new_entry
 
+    def update_entry(
+        self,
+        entry_id: str,
+        title: str,
+        content: str,
+        category: str,
+        source: str,
+        keywords: Optional[List[str]] = None,
+    ) -> Optional[Dict[str, Any]]:
+        """Updates an existing verified campus entry in JSON, memory, and CSV."""
+        if not keywords:
+            keywords = tokenize_and_extract_keywords(f"{title} {content}")[:12]
+
+        updated_entry = None
+        for entry in self.entries:
+            if entry.get("id") == entry_id:
+                entry["title"] = title.strip()
+                entry["content"] = content.strip()
+                entry["category"] = category.strip()
+                entry["source"] = source.strip()
+                entry["keywords"] = keywords
+                updated_entry = entry
+                break
+
+        if not updated_entry:
+            return None
+
+        # Persist to JSON if it is one of the JSON entries
+        if self.json_path.exists():
+            with open(self.json_path, "r", encoding="utf-8") as f:
+                json_entries = json.load(f)
+            found_in_json = False
+            for je in json_entries:
+                if je.get("id") == entry_id:
+                    je.update(updated_entry)
+                    found_in_json = True
+                    break
+            if not found_in_json:
+                json_entries.append(updated_entry)
+            with open(self.json_path, "w", encoding="utf-8") as f:
+                json.dump(json_entries, f, indent=2, ensure_ascii=False)
+
+        self.export_to_csv(KB_CSV_PATH)
+        return updated_entry
+
     def get_categories(self) -> List[str]:
         """Returns sorted list of unique categories in the knowledge base."""
         return sorted(list({e.get("category", "General") for e in self.entries}))

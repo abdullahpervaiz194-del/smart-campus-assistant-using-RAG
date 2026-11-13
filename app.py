@@ -175,6 +175,41 @@ def api_add_kb():
     })
 
 
+@app.route("/api/knowledge-base/<entry_id>", methods=["PUT"])
+def api_update_kb(entry_id: str):
+    """Updates an existing verified campus passage and re-embeds it via Ollama."""
+    payload = request.get_json(silent=True) or {}
+    title = (payload.get("title") or "").strip()
+    category = (payload.get("category") or "").strip()
+    content = (payload.get("content") or "").strip()
+    source = (payload.get("source") or "").strip()
+    keywords_raw = (payload.get("keywords") or "").strip()
+
+    if not title or not category or not content or not source:
+        return jsonify({"error": "Title, Category, Content, and Official Source are required."}), 400
+
+    keywords = [k.strip() for k in keywords_raw.split(",") if k.strip()] if keywords_raw else None
+    updated = kb.update_entry(
+        entry_id=entry_id,
+        title=title,
+        content=content,
+        category=category,
+        source=source,
+        keywords=keywords,
+    )
+    if not updated:
+        return jsonify({"error": f"Passage {entry_id} not found."}), 404
+
+    retriever.entries = kb.entries
+    idx_stats = retriever.build_or_load_index()
+
+    return jsonify({
+        "message": f"Successfully updated {entry_id} and re-embedded vector in Ollama.",
+        "entry": updated,
+        "index_stats": idx_stats,
+    })
+
+
 @app.route("/api/evaluation", methods=["GET"])
 def api_get_evaluation():
     """Returns cached evaluation benchmark results and the 25 test questions."""

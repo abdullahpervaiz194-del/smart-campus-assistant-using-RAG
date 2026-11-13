@@ -234,10 +234,10 @@
   {
     "id": "KB-030",
     "category": "Hostel, Transport & Facilities",
-    "title": "University Hostel Accommodation and Application Process",
-    "content": "The university provides separate on-campus and university-managed hostel accommodation for out-of-station male and female students. Hostel seats are allotted on a first-come, first-served and distance-priority basis at the start of the Fall semester. The hostel fee is Rs. 36,000 per semester (shared 3-seater room) plus monthly mess charges on an actual-cost basis. Hostel gate curfew time is 10:00 PM for male hostels and 8:30 PM for female hostels. Applications are submitted to the Provost/Hostel Warden Office in the Student Center (Room SC-10).",
-    "source": "Hostel Administration & Provost Circular #HST-2026-02",
-    "keywords": ["hostel", "accommodation", "room", "mess", "hostel fee", "curfew", "warden", "provost", "boys", "girls"]
+    "title": "University Hostel Accommodation and Fee Inquiry via SSO",
+    "content": "The university provides separate hostel accommodation for out-of-station male and female students. For all hostel fee details, fee challans, and hostel application inquiries, students must visit the Student Service Officer (SSO) Office located on the Ground Floor of the Main Building. Hostel gate curfew time is 10:00 PM for male hostels and 8:30 PM for female hostels.",
+    "source": "Hostel Administration & Student Service Officer Circular #HST-2026-02",
+    "keywords": ["hostel", "hostel fee", "sso", "student service officer", "ground floor", "main building", "accommodation", "room", "mess", "curfew", "boys", "girls"]
   },
   {
     "id": "KB-031",

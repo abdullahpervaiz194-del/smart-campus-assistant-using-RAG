@@ -238,6 +238,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const kbCardsContainer = document.getElementById("kbCardsContainer");
   const addKbForm = document.getElementById("addKbForm");
   const addKbFeedback = document.getElementById("addKbFeedback");
+  let editingKbId = null;
 
   async function loadKnowledgeBase() {
     const search = kbSearchInput.value.trim();
@@ -268,7 +269,17 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
           <div class="kb-item-footer">
             <span>📄 ${escapeHtml(e.source)}</span>
-            <button type="button" class="btn-secondary kb-ask-btn" data-q="Tell me about ${escapeHtml(e.title)}">Ask</button>
+            <div style="display:flex; gap:0.4rem;">
+              <button type="button" class="btn-secondary kb-edit-btn"
+                data-id="${escapeHtml(e.id)}"
+                data-title="${escapeHtml(e.title)}"
+                data-category="${escapeHtml(e.category)}"
+                data-content="${escapeHtml(e.content)}"
+                data-source="${escapeHtml(e.source)}"
+                data-keywords="${escapeHtml((e.keywords || []).join(', '))}"
+              >✏️ Edit</button>
+              <button type="button" class="btn-secondary kb-ask-btn" data-q="Tell me about ${escapeHtml(e.title)}">Ask</button>
+            </div>
           </div>
         </div>
       `
@@ -278,6 +289,20 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".kb-ask-btn").forEach((btn) => {
       btn.addEventListener("click", () => submitQuestion(btn.dataset.q));
     });
+
+    document.querySelectorAll(".kb-edit-btn").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        editingKbId = btn.dataset.id;
+        document.getElementById("newKbTitle").value = btn.dataset.title;
+        document.getElementById("newKbCategory").value = btn.dataset.category;
+        document.getElementById("newKbContent").value = btn.dataset.content;
+        document.getElementById("newKbSource").value = btn.dataset.source;
+        document.getElementById("newKbKeywords").value = btn.dataset.keywords;
+        addKbFeedback.textContent = `Editing ${editingKbId} — modify fields above and click Save!`;
+        addKbForm.querySelector("button[type='submit']").textContent = `💾 Save Changes to ${editingKbId}`;
+        addKbForm.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    });
   }
 
   kbSearchInput.addEventListener("input", loadKnowledgeBase);
@@ -285,7 +310,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   addKbForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    addKbFeedback.textContent = "Embedding and saving passage via Ollama...";
+    addKbFeedback.textContent = editingKbId
+      ? `Updating ${editingKbId} and re-embedding via Ollama...`
+      : "Embedding and saving passage via Ollama...";
     const payload = {
       title: document.getElementById("newKbTitle").value,
       category: document.getElementById("newKbCategory").value,
@@ -294,18 +321,25 @@ document.addEventListener("DOMContentLoaded", () => {
       keywords: document.getElementById("newKbKeywords").value,
     };
 
-    const resp = await fetch("/api/knowledge-base", {
-      method: "POST",
+    const url = editingKbId
+      ? `/api/knowledge-base/${encodeURIComponent(editingKbId)}`
+      : "/api/knowledge-base";
+    const method = editingKbId ? "PUT" : "POST";
+
+    const resp = await fetch(url, {
+      method,
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
     const data = await resp.json();
     if (resp.ok) {
       addKbFeedback.textContent = `✓ ${data.message}`;
+      editingKbId = null;
+      addKbForm.querySelector("button[type='submit']").textContent = "Add & Embed Passage";
       addKbForm.reset();
       loadKnowledgeBase();
     } else {
-      addKbFeedback.textContent = `Error: ${data.error || "Could not add entry"}`;
+      addKbFeedback.textContent = `Error: ${data.error || "Could not save entry"}`;
     }
   });
 
