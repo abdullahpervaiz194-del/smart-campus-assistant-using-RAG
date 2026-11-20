@@ -35,14 +35,14 @@ This prototype implements a complete **Retrieval-Augmented Generation (RAG)** wo
 
 ```text
 smart-campus-assistant/
-├── app.py                              # Flask web server & REST API endpoints (Abdullah - 18352)
-├── evaluate.py                         # CLI script to run the 25-question benchmark (Hafeez Khan - 18165)
+├── app.py                              # Flask web server & REST API endpoints 
+├── evaluate.py                         # CLI script to run the 25-question benchmark
 ├── requirements.txt                    # Python package dependencies
 ├── README.md                           # Project setup & usage guide
 ├── docs/
 │   └── TECHNICAL_REPORT.md             # Full Technical Report, Architecture & Viva Q&A Guide
 ├── data/
-│   ├── campus_knowledge_base.json      # 36 structured verified campus entries with sources (Talha - 18365)
+│   ├── campus_knowledge_base.json      # 36 structured verified campus entries with sources 
 │   ├── campus_knowledge_base.csv       # Auto-exported CSV version of the knowledge base
 │   ├── embeddings_cache.json           # Local cache of Ollama dense vector embeddings
 │   ├── test_questions.json             # 25 benchmark test questions (19 in-scope + 6 abstention)
@@ -52,11 +52,11 @@ smart-campus-assistant/
 │       └── campus_notices_supplement.txt  # Raw text document split into passages automatically
 ├── src/
 │   ├── config.py                       # Configuration, thresholds, paths & Group 1 metadata
-│   ├── knowledge_base.py               # Knowledge base loader, chunker & CSV exporter (Talha - 18365)
-│   ├── nlp_processor.py                # NLP cleaning, abbreviation expansion & tokenization (Aftab - 18333)
-│   ├── retriever.py                    # Ollama embeddings & Cosine Similarity retrieval (Aftab & Shahzad)
-│   ├── llm_generator.py                # Ollama LLM chat integration & abstention guard (Shahzad - 18292)
-│   └── evaluator.py                    # Benchmark evaluation engine (Hafeez Khan - 18165)
+│   ├── knowledge_base.py               # Knowledge base loader, chunker & CSV exporter 
+│   ├── nlp_processor.py                # NLP cleaning, abbreviation expansion & tokenization 
+│   ├── retriever.py                    # Ollama embeddings & Cosine Similarity retrieval 
+│   ├── llm_generator.py                # Ollama LLM chat integration & abstention guard 
+│   └── evaluator.py                    # Benchmark evaluation engine 
 ├── templates/
 │   └── index.html                      # Interactive 4-tab web dashboard & Live RAG Inspector
 └── static/
